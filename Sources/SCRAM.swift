@@ -1,3 +1,4 @@
+import Foundation
 import HMAC
 import CryptoEssentials
 import PBKDF2
