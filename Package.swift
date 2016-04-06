@@ -5,6 +5,5 @@ let package = Package(
     dependencies: [
         .Package(url: "https://github.com/CryptoKitten/PBKDF2.git", majorVersion: 0, minor: 3),
         .Package(url: "https://github.com/CryptoKitten/SHA1.git", majorVersion: 0, minor: 3),
-        .Package(url: "https://github.com/CryptoKitten/HMAC.git", majorVersion: 0, minor: 2)
     ]
 )
