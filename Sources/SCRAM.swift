@@ -74,12 +74,12 @@ final public class SCRAMClient {
     }
     
     public func authenticate(username: String, usingNonce nonce: String) throws -> String {
-        return "\(SCRAM.gs2BindFlag)n=\(fixUsername(username)),r=\(nonce)"
+        return "\(SCRAMClient.gs2BindFlag)n=\(fixUsername(username)),r=\(nonce)"
     }
     
     public func process(challenge challenge: String, with details: (username: String, password: [Byte]), usingNonce nonce: String) throws -> (proof: String, serverSignature: [Byte]) {
-        guard let encodedHeader = [UInt8](SCRAM.gs2BindFlag.utf8).toBase64() else {
-            throw SCRAMError.Base64Failure(original: [UInt8](SCRAM.gs2BindFlag.utf8))
+        guard let encodedHeader = [UInt8](SCRAMClient.gs2BindFlag.utf8).toBase64() else {
+            throw SCRAMError.Base64Failure(original: [UInt8](SCRAMClient.gs2BindFlag.utf8))
         }
         
         let parsedResponse = try parse(challenge: challenge)
