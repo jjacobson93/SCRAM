@@ -9,7 +9,7 @@ final public class SCRAM {
     static let gs2BindFlag = "n,,"
     let hashingMethod: HashProtocol.Type
     
-    init(hashingMethod: HashProtocol.Type) {
+    public init(hashingMethod: HashProtocol.Type) {
         self.hashingMethod = hashingMethod
     }
     
@@ -74,11 +74,7 @@ final public class SCRAM {
     }
     
     public func authenticate(username: String, usingNonce nonce: String) throws -> String {
-        guard let base64nonce = [UInt8](nonce.utf8).toBase64() else {
-            throw SCRAMError.Base64Failure(original: [UInt8](nonce.utf8))
-        }
-        
-        return "\(SCRAM.gs2BindFlag)n=\(fixUsername(username)),r=\(base64nonce)"
+        return "\(SCRAM.gs2BindFlag)n=\(fixUsername(username)),r=\(nonce)"
     }
     
     public func process(challenge challenge: String, with details: (username: String, password: [Byte]), usingNonce nonce: String) throws -> (proof: String, serverSignature: [Byte]) {
@@ -88,30 +84,33 @@ final public class SCRAM {
         
         let parsedResponse = try parse(challenge: challenge)
 
+        let remoteNonce = parsedResponse.nonce
+        
+        guard String(remoteNonce[remoteNonce.startIndex..<remoteNonce.startIndex.advanced(by: 24)]) == nonce else {
+            throw SCRAMError.InvalidNonce(nonce: parsedResponse.nonce)
+        }
+        
         let noProof = "c=\(encodedHeader),r=\(parsedResponse.nonce)"
         
         let salt = [Byte](base64: parsedResponse.salt)
         let saltedPassword = try PBKDF2.calculate(details.password, salt: salt, iterations: parsedResponse.iterations, variant: hashingMethod)
-
-        var ck = [Byte](), sk = [Byte]()
-        ck.append(contentsOf: "Client Key".utf8)
-
-        sk.append(contentsOf: "Server Key".utf8)
         
-        let clientKey = HMAC.authenticate(key: saltedPassword, message: ck, variant: hashingMethod)
-        let serverKey = HMAC.authenticate(key: saltedPassword, message: sk, variant: hashingMethod)
+        let ck = [Byte]("Client Key".utf8)
+        let sk = [Byte]("Server Key".utf8)
+        
+        let clientKey = HMAC.authenticate(ck, withKey: saltedPassword, using: hashingMethod)
+        let serverKey = HMAC.authenticate(sk, withKey: saltedPassword, using: hashingMethod)
 
-        let hashingClientKey = hashingMethod.init(clientKey)
-        let storedKey = hashingClientKey.calculate()
+        let storedKey = hashingMethod.calculate(clientKey)
 
         let authenticationMessage = "n=\(fixUsername(details.username)),r=\(nonce),\(challenge),\(noProof)"
 
         var authenticationMessageBytes = [Byte]()
         authenticationMessageBytes.append(contentsOf: authenticationMessage.utf8)
         
-        let clientSignature = HMAC.authenticate(key: storedKey, message: authenticationMessageBytes, variant: hashingMethod)
+        let clientSignature = HMAC.authenticate(authenticationMessageBytes, withKey: storedKey, using: hashingMethod)
         let clientProof = xor(clientKey, clientSignature)
-        let serverSignature = HMAC.authenticate(key: serverKey, message: authenticationMessageBytes, variant: hashingMethod)
+        let serverSignature = HMAC.authenticate(authenticationMessageBytes, withKey: serverKey, using: hashingMethod)
         
         guard let proof = clientProof.toBase64() else {
             throw SCRAMError.Base64Failure(original: clientProof)
@@ -147,4 +146,5 @@ public enum SCRAMError: ErrorProtocol {
     case Base64Failure(original: [Byte])
     case ChallengeParseError(challenge: String)
     case ResponseParseError(response: String)
+    case InvalidNonce(nonce: String)
 }
