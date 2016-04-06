@@ -5,7 +5,7 @@ import PBKDF2
 import C7
 import SHA1
 
-final public class SCRAM {
+final public class SCRAMClient {
     static let gs2BindFlag = "n,,"
     let hashingMethod: HashProtocol.Type
     
