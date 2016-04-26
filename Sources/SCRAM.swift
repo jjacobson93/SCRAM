@@ -10,20 +10,30 @@ final public class SCRAMClient<Variant: HashProtocol> {
         
     }
     
-    private func fixUsername(username: String) -> String {
+    private func fix(username username: String) -> String {
         return replaceOccurrences(in: replaceOccurrences(in: username, where: "=", with: "=3D"), where: ",", with: "=2C")
     }
     
-    private func parse(challenge: String) throws -> (nonce: String, salt: String, iterations: Int) {
+    private func parse(challenge challenge: String) throws -> (nonce: String, salt: String, iterations: Int) {
         var nonce: String? = nil
         var iterations: Int? = nil
         var salt: String? = nil
         
-        for part in challenge.characters.split(separator: ",") where String(part).characters.count >= 3 {
+        #if !swift(>=3.0)
+            let splittedChallenge = challenge.characters.split(",")
+        #else
+            let splittedChallenge = challenge.characters.split(separator: ",")
+        #endif
+        
+        for part in splittedChallenge where String(part).characters.count >= 3 {
             let part = String(part)
             
             if let first = part.characters.first {
-                let data = part[part.startIndex.advanced(by: 2)..<part.endIndex]
+                #if !swift(>=3.0)
+                    let data = part[part.startIndex.advancedBy(2)..<part.endIndex]
+                #else
+                    let data = part[part.startIndex.advanced(by: 2)..<part.endIndex]
+                #endif
                 
                 switch first {
                 case "r":
@@ -48,11 +58,21 @@ final public class SCRAMClient<Variant: HashProtocol> {
     private func parse(finalResponse response: String) throws -> [UInt8] {
         var signature: [UInt8]? = nil
         
-        for part in response.characters.split(separator: ",") where String(part).characters.count >= 3 {
+        #if !swift(>=3.0)
+            let splitResponse = response.characters.split(",")
+        #else
+            let splitResponse = response.characters.split(separator: ",")
+        #endif
+        
+        for part in splitResponse where String(part).characters.count >= 3 {
             let part = String(part)
             
             if let first = part.characters.first {
-                let data = part[part.startIndex.advanced(by: 2)..<part.endIndex]
+                #if !swift(>=3.0)
+                    let data = part[part.startIndex.advancedBy(2)..<part.endIndex]
+                #else
+                    let data = part[part.startIndex.advanced(by: 2)..<part.endIndex]
+                #endif
                 
                 switch first {
                 case "v":
@@ -71,7 +91,7 @@ final public class SCRAMClient<Variant: HashProtocol> {
     }
     
     public func authenticate(_ username: String, usingNonce nonce: String) throws -> String {
-        return "\(gs2BindFlag)n=\(fixUsername(username: username)),r=\(nonce)"
+        return "\(gs2BindFlag)n=\(fix(username: username)),r=\(nonce)"
     }
     
     public func process(_ challenge: String, with details: (username: String, password: [UInt8]), usingNonce nonce: String) throws -> (proof: String, serverSignature: [UInt8]) {
@@ -83,14 +103,20 @@ final public class SCRAMClient<Variant: HashProtocol> {
 
         let remoteNonce = parsedResponse.nonce
         
-        guard String(remoteNonce[remoteNonce.startIndex..<remoteNonce.startIndex.advanced(by: 24)]) == nonce else {
+        #if !swift(>=3.0)
+            let endIndex = remoteNonce.startIndex.advancedBy(24)
+        #else
+            let endIndex = remoteNonce.startIndex.advanced(by: 24)
+        #endif
+        
+        guard String(remoteNonce[remoteNonce.startIndex..<endIndex]) == nonce else {
             throw SCRAMError.InvalidNonce(nonce: parsedResponse.nonce)
         }
         
         let noProof = "c=\(encodedHeader),r=\(parsedResponse.nonce)"
         
         let salt = [UInt8](base64: parsedResponse.salt)
-        let saltedPassword = try PBKDF2<Variant>.calculate(details.password, salt: salt, iterations: parsedResponse.iterations)
+        let saltedPassword = try PBKDF2<Variant>.calculate(details.password, usingSalt: salt, iterating: parsedResponse.iterations)
         
         let ck = [UInt8]("Client Key".utf8)
         let sk = [UInt8]("Server Key".utf8)
@@ -100,11 +126,9 @@ final public class SCRAMClient<Variant: HashProtocol> {
 
         let storedKey = Variant.calculate(clientKey)
 
-        let authenticationMessage = "n=\(fixUsername(username: details.username)),r=\(nonce),\(challenge),\(noProof)"
+        let authenticationMessage = "n=\(fix(username: details.username)),r=\(nonce),\(challenge),\(noProof)"
 
-        var authenticationMessageBytes = [UInt8
-]()
-        authenticationMessageBytes.append(contentsOf: authenticationMessage.utf8)
+        let authenticationMessageBytes = [UInt8](authenticationMessage.utf8)
         
         let clientSignature = HMAC<Variant>.authenticate(message: authenticationMessageBytes, withKey: storedKey)
         let clientProof = xor(clientKey, clientSignature)
@@ -132,17 +156,31 @@ final public class SCRAMClient<Variant: HashProtocol> {
 /// Because "having a single cross-platform API for a programming language is stupid"
 /// TODO: Remove/update with the next Swift version
 internal func replaceOccurrences(in string: String, where matching: String, with replacement: String) -> String {
-    #if os(Linux)
+    #if !swift(>=3.0)
         return string.stringByReplacingOccurrencesOfString(matching, withString: replacement)
     #else
-        return string.replacingOccurrences(of: matching, with: replacement)
+        #if os(Linux)
+            return string.stringByReplacingOccurrencesOfString(matching, withString: replacement)
+        #else
+            return string.replacingOccurrences(of: matching, with: replacement)
+        #endif
     #endif
 }
 
-public enum SCRAMError: ErrorProtocol {
-    case InvalidSignature(signature: [UInt8])
-    case Base64Failure(original: [UInt8])
-    case ChallengeParseError(challenge: String)
-    case ResponseParseError(response: String)
-    case InvalidNonce(nonce: String)
-}
+#if !swift(>=3.0)
+    public enum SCRAMError: ErrorType {
+        case InvalidSignature(signature: [UInt8])
+        case Base64Failure(original: [UInt8])
+        case ChallengeParseError(challenge: String)
+        case ResponseParseError(response: String)
+        case InvalidNonce(nonce: String)
+    }
+#else
+    public enum SCRAMError: ErrorProtocol {
+        case InvalidSignature(signature: [UInt8])
+        case Base64Failure(original: [UInt8])
+        case ChallengeParseError(challenge: String)
+        case ResponseParseError(response: String)
+        case InvalidNonce(nonce: String)
+    }
+#endif
