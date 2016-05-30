@@ -10,16 +10,16 @@ final public class SCRAMClient<Variant: HashProtocol> {
         
     }
     
-    private func fixUsername(username: String) -> String {
-        return replaceOccurrences(in: replaceOccurrences(in: username, where: "=", with: "=3D"), where: ",", with: "=2C")
+    private func fixUsername(username user: String) -> String {
+        return replaceOccurrences(in: replaceOccurrences(in: user, where: "=", with: "=3D"), where: ",", with: "=2C")
     }
     
-    private func parse(challenge: String) throws -> (nonce: String, salt: String, iterations: Int) {
+    private func parse(challenge response: String) throws -> (nonce: String, salt: String, iterations: Int) {
         var nonce: String? = nil
         var iterations: Int? = nil
         var salt: String? = nil
         
-        for part in challenge.characters.split(separator: ",") where String(part).characters.count >= 3 {
+        for part in response.characters.split(separator: ",") where String(part).characters.count >= 3 {
             let part = String(part)
             
             if let first = part.characters.first {
@@ -42,7 +42,7 @@ final public class SCRAMClient<Variant: HashProtocol> {
             return (nonce: nonce, salt: salt, iterations: iterations)
         }
         
-        throw SCRAMError.ChallengeParseError(challenge: challenge)
+        throw SCRAMError.ChallengeParseError(challenge: response)
     }
     
     private func parse(finalResponse response: String) throws -> [UInt8] {
@@ -75,9 +75,7 @@ final public class SCRAMClient<Variant: HashProtocol> {
     }
     
     public func process(_ challenge: String, with details: (username: String, password: [UInt8]), usingNonce nonce: String) throws -> (proof: String, serverSignature: [UInt8]) {
-        guard let encodedHeader = [UInt8](gs2BindFlag.utf8).base64 else {
-            throw SCRAMError.Base64Failure(original: [UInt8](gs2BindFlag.utf8))
-        }
+        let encodedHeader = [UInt8](gs2BindFlag.utf8).base64
         
         let parsedResponse = try parse(challenge: challenge)
 
@@ -110,9 +108,7 @@ final public class SCRAMClient<Variant: HashProtocol> {
         let clientProof = xor(clientKey, clientSignature)
         let serverSignature = HMAC<Variant>.authenticate(message: authenticationMessageBytes, withKey: serverKey)
         
-        guard let proof = clientProof.base64 else {
-            throw SCRAMError.Base64Failure(original: clientProof)
-        }
+        let proof = clientProof.base64
 
         return (proof: "\(noProof),p=\(proof)", serverSignature: serverSignature)
     }
