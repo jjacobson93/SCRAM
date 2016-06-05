@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 46;
+    rootObject = __RootObject_;
+    objects = {
+        __RootObject_ = {
+            isa = PBXProject;
+            attributes = {LastUpgradeCheck = 9999;};
+            buildConfigurationList = ___RootConfs_;
+            compatibilityVersion = 'Xcode 3.2';
+            developmentRegion = English;
+            hasScannedForEncodings = 0;
+            knownRegions = (en);
+            mainGroup = ___RootGroup_;
+            productRefGroup = ____Products_;
+            projectDirPath = '';
+            projectRoot = '';
+            targets = (______Target_CryptoEssentials, ______Target_HMAC, ______Target_PBKDF2, ______Target_SCRAM);
+        };
+        '__PBXFileRef_Package.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'Package.swift';
+            path = 'Package.swift';
+            sourceTree = '<group>';
+        };
+        ___RootGroup_ = {
+            isa = PBXGroup;
+            children = ('__PBXFileRef_Package.swift', _____Configs_, _____Sources_, Dependencies_, _______Tests_, ____Products_);
+            sourceTree = '<group>';
+        };
+        _______Group_CryptoEssentials = {
+            isa = PBXGroup;
+            name = CryptoEssentials;
+            path = 'Packages/CryptoEssentials-0.7.0/Sources';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/ArrayProtocol.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Base64.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/BlockMode.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/BytesSequence.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Cipher.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Generics.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/HashProtocol.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/IntegerConvertible.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/IntExtension.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/NSData+Extensions.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Operators.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Padding.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/SecureBytes.swift', '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Utils.swift');
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/ArrayProtocol.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'ArrayProtocol.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Base64.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'Base64.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/BlockMode.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'BlockMode.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/BytesSequence.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'BytesSequence.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Cipher.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'Cipher.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Generics.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'Generics.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/HashProtocol.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'HashProtocol.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/IntegerConvertible.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'IntegerConvertible.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/IntExtension.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'IntExtension.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/NSData+Extensions.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'NSData+Extensions.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Operators.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'Operators.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Padding.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'Padding.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/SecureBytes.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'SecureBytes.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Utils.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'Utils.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_CryptoEssentials = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_CryptoEssentials;
+            buildPhases = (CompilePhase_CryptoEssentials, ___LinkPhase_CryptoEssentials);
+            buildRules = ();
+            dependencies = ();
+            name = CryptoEssentials;
+            productName = CryptoEssentials;
+            productReference = _____Product_CryptoEssentials;
+            productType = 'com.apple.product-type.library.dynamic';
+        };
+        _____Product_CryptoEssentials = {
+            isa = PBXFileReference;
+            explicitFileType = 'compiled.mach-o.dylib';
+            path = 'CryptoEssentials.dylib';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_CryptoEssentials = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/ArrayProtocol.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Base64.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/BlockMode.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/BytesSequence.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Cipher.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Generics.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/HashProtocol.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/IntegerConvertible.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/IntExtension.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/NSData+Extensions.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Operators.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Padding.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/SecureBytes.swift', '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Utils.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        ___LinkPhase_CryptoEssentials = {
+            isa = PBXFrameworksBuildPhase;
+            files = ();
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/ArrayProtocol.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/ArrayProtocol.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Base64.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Base64.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/BlockMode.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/BlockMode.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/BytesSequence.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/BytesSequence.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Cipher.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Cipher.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Generics.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Generics.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/HashProtocol.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/HashProtocol.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/IntegerConvertible.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/IntegerConvertible.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/IntExtension.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/IntExtension.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/NSData+Extensions.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/NSData+Extensions.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Operators.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Operators.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Padding.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Padding.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/SecureBytes.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/SecureBytes.swift';
+        };
+        '__src_cc_ref_Packages/CryptoEssentials-0.7.0/Sources/Utils.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/CryptoEssentials-0.7.0/Sources/Utils.swift';
+        };
+        _LinkFileRef_CryptoEssentials = {
+            isa = PBXBuildFile;
+            fileRef = _____Product_CryptoEssentials;
+        };
+        _______Confs_CryptoEssentials = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_CryptoEssentials, _ReleaseConf_CryptoEssentials);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_CryptoEssentials = {
+            isa = XCBuildConfiguration;
+            buildSettings = { ENABLE_TESTABILITY = YES; SWIFT_OPTIMIZATION_LEVEL = -Onone; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; };
+            name = Debug;
+        };
+        _ReleaseConf_CryptoEssentials = {
+            isa = XCBuildConfiguration;
+            buildSettings = { ENABLE_TESTABILITY = YES; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; };
+            name = Release;
+        };
+        __Dependency_CryptoEssentials = {
+            isa = PBXTargetDependency;
+            target = ______Target_CryptoEssentials;
+        };
+        _______Group_HMAC = {
+            isa = PBXGroup;
+            name = HMAC;
+            path = 'Packages/HMAC-0.7.0/Sources';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Packages/HMAC-0.7.0/Sources/HMAC.swift');
+        };
+        '__PBXFileRef_Packages/HMAC-0.7.0/Sources/HMAC.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'HMAC.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_HMAC = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_HMAC;
+            buildPhases = (CompilePhase_HMAC, ___LinkPhase_HMAC);
+            buildRules = ();
+            dependencies = (__Dependency_CryptoEssentials);
+            name = HMAC;
+            productName = HMAC;
+            productReference = _____Product_HMAC;
+            productType = 'com.apple.product-type.library.dynamic';
+        };
+        _____Product_HMAC = {
+            isa = PBXFileReference;
+            explicitFileType = 'compiled.mach-o.dylib';
+            path = 'HMAC.dylib';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_HMAC = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Packages/HMAC-0.7.0/Sources/HMAC.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        ___LinkPhase_HMAC = {
+            isa = PBXFrameworksBuildPhase;
+            files = (_LinkFileRef_CryptoEssentials);
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Packages/HMAC-0.7.0/Sources/HMAC.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/HMAC-0.7.0/Sources/HMAC.swift';
+        };
+        _LinkFileRef_HMAC = {
+            isa = PBXBuildFile;
+            fileRef = _____Product_HMAC;
+        };
+        _______Confs_HMAC = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_HMAC, _ReleaseConf_HMAC);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_HMAC = {
+            isa = XCBuildConfiguration;
+            buildSettings = { ENABLE_TESTABILITY = YES; SWIFT_OPTIMIZATION_LEVEL = -Onone; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; };
+            name = Debug;
+        };
+        _ReleaseConf_HMAC = {
+            isa = XCBuildConfiguration;
+            buildSettings = { ENABLE_TESTABILITY = YES; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; };
+            name = Release;
+        };
+        __Dependency_HMAC = {
+            isa = PBXTargetDependency;
+            target = ______Target_HMAC;
+        };
+        _______Group_PBKDF2 = {
+            isa = PBXGroup;
+            name = PBKDF2;
+            path = 'Packages/PBKDF2-0.7.0/Sources';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Packages/PBKDF2-0.7.0/Sources/PBKDF2.swift');
+        };
+        '__PBXFileRef_Packages/PBKDF2-0.7.0/Sources/PBKDF2.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'PBKDF2.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_PBKDF2 = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_PBKDF2;
+            buildPhases = (CompilePhase_PBKDF2, ___LinkPhase_PBKDF2);
+            buildRules = ();
+            dependencies = (__Dependency_CryptoEssentials, __Dependency_HMAC);
+            name = PBKDF2;
+            productName = PBKDF2;
+            productReference = _____Product_PBKDF2;
+            productType = 'com.apple.product-type.library.dynamic';
+        };
+        _____Product_PBKDF2 = {
+            isa = PBXFileReference;
+            explicitFileType = 'compiled.mach-o.dylib';
+            path = 'PBKDF2.dylib';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_PBKDF2 = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Packages/PBKDF2-0.7.0/Sources/PBKDF2.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        ___LinkPhase_PBKDF2 = {
+            isa = PBXFrameworksBuildPhase;
+            files = (_LinkFileRef_CryptoEssentials, _LinkFileRef_HMAC);
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Packages/PBKDF2-0.7.0/Sources/PBKDF2.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Packages/PBKDF2-0.7.0/Sources/PBKDF2.swift';
+        };
+        _LinkFileRef_PBKDF2 = {
+            isa = PBXBuildFile;
+            fileRef = _____Product_PBKDF2;
+        };
+        _______Confs_PBKDF2 = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_PBKDF2, _ReleaseConf_PBKDF2);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_PBKDF2 = {
+            isa = XCBuildConfiguration;
+            buildSettings = { ENABLE_TESTABILITY = YES; SWIFT_OPTIMIZATION_LEVEL = -Onone; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; };
+            name = Debug;
+        };
+        _ReleaseConf_PBKDF2 = {
+            isa = XCBuildConfiguration;
+            buildSettings = { ENABLE_TESTABILITY = YES; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; };
+            name = Release;
+        };
+        __Dependency_PBKDF2 = {
+            isa = PBXTargetDependency;
+            target = ______Target_PBKDF2;
+        };
+        _______Group_SCRAM = {
+            isa = PBXGroup;
+            name = SCRAM;
+            path = 'Sources';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Sources/SCRAM.swift');
+        };
+        '__PBXFileRef_Sources/SCRAM.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'SCRAM.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_SCRAM = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_SCRAM;
+            buildPhases = (CompilePhase_SCRAM, ___LinkPhase_SCRAM);
+            buildRules = ();
+            dependencies = (__Dependency_CryptoEssentials, __Dependency_HMAC, __Dependency_PBKDF2);
+            name = SCRAM;
+            productName = SCRAM;
+            productReference = _____Product_SCRAM;
+            productType = 'com.apple.product-type.library.dynamic';
+        };
+        _____Product_SCRAM = {
+            isa = PBXFileReference;
+            explicitFileType = 'compiled.mach-o.dylib';
+            path = 'SCRAM.dylib';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_SCRAM = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Sources/SCRAM.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        ___LinkPhase_SCRAM = {
+            isa = PBXFrameworksBuildPhase;
+            files = (_LinkFileRef_CryptoEssentials, _LinkFileRef_HMAC, _LinkFileRef_PBKDF2);
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Sources/SCRAM.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/SCRAM.swift';
+        };
+        _LinkFileRef_SCRAM = {
+            isa = PBXBuildFile;
+            fileRef = _____Product_SCRAM;
+        };
+        _______Confs_SCRAM = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_SCRAM, _ReleaseConf_SCRAM);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_SCRAM = {
+            isa = XCBuildConfiguration;
+            buildSettings = { ENABLE_TESTABILITY = YES; SWIFT_OPTIMIZATION_LEVEL = -Onone; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; };
+            name = Debug;
+        };
+        _ReleaseConf_SCRAM = {
+            isa = XCBuildConfiguration;
+            buildSettings = { ENABLE_TESTABILITY = YES; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; };
+            name = Release;
+        };
+        __Dependency_SCRAM = {
+            isa = PBXTargetDependency;
+            target = ______Target_SCRAM;
+        };
+        '__PBXFileRef_SCRAM.xcodeproj/Configs/Project.xcconfig' = {
+            isa = PBXFileReference;
+            lastKnownFileType = text.xcconfig;
+            name = 'Project.xcconfig';
+            path = 'SCRAM.xcodeproj/Configs/Project.xcconfig';
+            sourceTree = '<group>';
+        };
+        _____Configs_ = {
+            isa = PBXGroup;
+            children = ('__PBXFileRef_SCRAM.xcodeproj/Configs/Project.xcconfig');
+            name = Configs;
+            sourceTree = '<group>';
+        };
+        _____Sources_ = {
+            isa = PBXGroup;
+            children = (_______Group_CryptoEssentials, _______Group_HMAC, _______Group_PBKDF2, _______Group_SCRAM);
+            name = Sources;
+            sourceTree = '<group>';
+        };
+        Dependencies_ = {
+            isa = PBXGroup;
+            children = (_______Group_CryptoEssentials, _______Group_HMAC, _______Group_PBKDF2);
+            name = Dependencies;
+            sourceTree = '<group>';
+        };
+        ____Products_ = {
+            isa = PBXGroup;
+            children = (_____Product_CryptoEssentials, _____Product_HMAC, _____Product_PBKDF2, _____Product_SCRAM);
+            name = Products;
+            sourceTree = '<group>';
+        };
+        _______Debug_ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = '__PBXFileRef_SCRAM.xcodeproj/Configs/Project.xcconfig';
+            buildSettings = {};
+            name = Debug;
+        };
+        _____Release_ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = '__PBXFileRef_SCRAM.xcodeproj/Configs/Project.xcconfig';
+            buildSettings = {};
+            name = Release;
+        };
+        ___RootConfs_ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (_______Debug_, _____Release_);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+    };
+}
