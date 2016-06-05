@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AF864F71D0484ED00481EDC /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = 0AF864F61D0484ED00481EDC /* Sources */; };
+		0AE654031D04912A00BAA9B7 /* HMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE654011D04912A00BAA9B7 /* HMAC.framework */; };
+		0AE654041D04912A00BAA9B7 /* PBKDF2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE654021D04912A00BAA9B7 /* PBKDF2.framework */; };
+		0AF81A0D1D048D5800543544 /* CryptoEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF864F81D04852300481EDC /* CryptoEssentials.framework */; };
+		0AF81A0F1D048D6100543544 /* SCRAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF81A0E1D048D6100543544 /* SCRAM.swift */; };
 		0AF864F91D04852300481EDC /* CryptoEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF864F81D04852300481EDC /* CryptoEssentials.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,12 +25,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AF864F51D0484DA00481EDC /* NoSPM */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NoSPM; sourceTree = "<group>"; };
-		0AF864F61D0484ED00481EDC /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
+		0AE653FF1D0490F000BAA9B7 /* SCRAM-NoSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "SCRAM-NoSPM.app"; path = "/Users/joannis/Documents/CryptoKitten/SCRAM/build/Debug-iphoneos/SCRAM-NoSPM.app"; sourceTree = "<absolute>"; };
+		0AE654001D0490F000BAA9B7 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UnitTests.xctest; path = "/Users/joannis/Documents/CryptoKitten/SCRAM/build/Debug-iphoneos/UnitTests.xctest"; sourceTree = "<absolute>"; };
+		0AE654011D04912A00BAA9B7 /* HMAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HMAC.framework; path = Carthage/Build/Mac/HMAC.framework; sourceTree = "<group>"; };
+		0AE654021D04912A00BAA9B7 /* PBKDF2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PBKDF2.framework; path = Carthage/Build/Mac/PBKDF2.framework; sourceTree = "<group>"; };
+		0AF81A0C1D048D4200543544 /* NoSPM */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NoSPM; sourceTree = "<group>"; };
+		0AF81A0E1D048D6100543544 /* SCRAM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCRAM.swift; path = Sources/SCRAM.swift; sourceTree = "<group>"; };
 		0AF864F81D04852300481EDC /* CryptoEssentials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEssentials.framework; path = Carthage/Build/Mac/CryptoEssentials.framework; sourceTree = "<group>"; };
-		0AF864FA1D04852300481EDC /* SCRAM-NoSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SCRAM-NoSPM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF864FB1D04854200481EDC /* SCRAM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCRAM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DB3D5E3EACC2287E4F331E4 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UnitTests.xctest; path = "/Users/joannis/Documents/CryptoKitten/SCRAM/build/Debug-iphoneos/UnitTests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE654031D04912A00BAA9B7 /* HMAC.framework in Frameworks */,
+				0AE654041D04912A00BAA9B7 /* PBKDF2.framework in Frameworks */,
+				0AF81A0D1D048D5800543544 /* CryptoEssentials.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,10 +67,11 @@
 		DBA428E5ED0DED42C45884BD = {
 			isa = PBXGroup;
 			children = (
+				0AE654011D04912A00BAA9B7 /* HMAC.framework */,
+				0AE654021D04912A00BAA9B7 /* PBKDF2.framework */,
+				0AF81A0E1D048D6100543544 /* SCRAM.swift */,
+				0AF81A0C1D048D4200543544 /* NoSPM */,
 				0AF864F81D04852300481EDC /* CryptoEssentials.framework */,
-				0AF864F61D0484ED00481EDC /* Sources */,
-				0AF864F51D0484DA00481EDC /* NoSPM */,
-				0AF864FA1D04852300481EDC /* SCRAM-NoSPM.app */,
 				0AF864FB1D04854200481EDC /* SCRAM.framework */,
 			);
 			indentWidth = 4;
@@ -117,7 +126,7 @@
 			);
 			name = "SCRAM-NoSPM";
 			productName = "SCRAM-NoSPM";
-			productReference = 0AF864FA1D04852300481EDC /* SCRAM-NoSPM.app */;
+			productReference = 0AE653FF1D0490F000BAA9B7 /* SCRAM-NoSPM.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E9EE12E216F36255BFCB0520 /* UnitTests */ = {
@@ -135,7 +144,7 @@
 			);
 			name = UnitTests;
 			productName = UnitTests;
-			productReference = 5DB3D5E3EACC2287E4F331E4 /* UnitTests.xctest */;
+			productReference = 0AE654001D0490F000BAA9B7 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +187,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AF864F71D0484ED00481EDC /* Sources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AF81A0F1D048D6100543544 /* SCRAM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +288,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -314,6 +327,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -523,6 +540,7 @@
 				0AF864F31D0484A300481EDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CC2E25136B63E09E5F9E95B /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;

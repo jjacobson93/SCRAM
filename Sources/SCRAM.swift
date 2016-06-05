@@ -11,7 +11,7 @@ final public class SCRAMClient<Variant: HashProtocol> {
     }
     
     private func fixUsername(username user: String) -> String {
-        return replaceOccurrences(in: replaceOccurrences(in: user, where: "=", with: "=3D"), where: ",", with: "=2C")
+        return replaceOccurrences(`in`: replaceOccurrences(`in`: user, `where`: "=", `with`: "=3D"), `where`: ",", with: "=2C")
     }
     
     private func parse(challenge response: String) throws -> (nonce: String, salt: String, iterations: Int) {
@@ -127,7 +127,7 @@ final public class SCRAMClient<Variant: HashProtocol> {
 /// Replaces occurrences of data with new data in a string
 /// Because "having a single cross-platform API for a programming language is stupid"
 /// TODO: Remove/update with the next Swift version
-internal func replaceOccurrences(in string: String, where matching: String, with replacement: String) -> String {
+internal func replaceOccurrences(`in` string: String, `where` matching: String, with replacement: String) -> String {
     return string.replacingOccurrences(of: matching, with: replacement)
 }
 

@@ -1,1 +1,2 @@
 github "CryptoKitten/CryptoEssentials" ~> 0.7
+github "CryptoKitten/PBKDF2" ~> 0.7
