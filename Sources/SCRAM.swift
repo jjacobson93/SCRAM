@@ -131,7 +131,7 @@ internal func replaceOccurrences(`in` string: String, `where` matching: String, 
     return string.replacingOccurrences(of: matching, with: replacement)
 }
 
-public enum SCRAMError: ErrorProtocol {
+public enum SCRAMError: Error {
     case InvalidSignature(signature: [UInt8])
     case Base64Failure(original: [UInt8])
     case ChallengeParseError(challenge: String)
