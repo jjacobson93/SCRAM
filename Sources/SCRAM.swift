@@ -100,8 +100,7 @@ final public class SCRAMClient<Variant: HashProtocol> {
 
         let authenticationMessage = "n=\(fixUsername(username: details.username)),r=\(nonce),\(challenge),\(noProof)"
 
-        var authenticationMessageBytes = [UInt8
-]()
+        var authenticationMessageBytes = [UInt8]()
         authenticationMessageBytes.append(contentsOf: authenticationMessage.utf8)
         
         let clientSignature = HMAC<Variant>.authenticate(message: authenticationMessageBytes, withKey: storedKey)
