@@ -38,7 +38,7 @@ final public class SCRAMClient<Variant: HashProtocol> {
             }
         }
         
-        if let nonce = nonce, iterations = iterations, salt = salt {
+        if let nonce = nonce, let iterations = iterations, let salt = salt {
             return (nonce: nonce, salt: salt, iterations: iterations)
         }
         
